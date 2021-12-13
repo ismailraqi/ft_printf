@@ -1,22 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_is_conversion.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iraqi <iraqi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/13 10:27:20 by iraqi             #+#    #+#             */
-/*   Updated: 2021/12/13 11:16:21 by iraqi            ###   ########.fr       */
+/*   Created: 2021/12/13 10:48:40 by iraqi             #+#    #+#             */
+/*   Updated: 2021/12/13 13:15:15 by iraqi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "../includes/ft_printf.h"
 
-#include <stdlib.h>
-#include <unistd.h>
-#include <stdarg.h>
-
-int	ft_is_conversion(char c);
-
-#endif
+int	ft_is_conversion(char c)
+{
+	if (c == 'c' || c == 's' || c == 'p' || c == 'd'
+		|| c == 'u' || c == 'i' || c == 'x' || c == 'X' || c == '%')
+		return (1);
+	return (0);
+}
