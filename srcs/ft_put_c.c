@@ -1,38 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iraqi <iraqi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/13 10:27:27 by iraqi             #+#    #+#             */
-/*   Updated: 2021/12/13 13:15:37 by iraqi            ###   ########.fr       */
+/*   Created: 2021/12/13 13:12:02 by iraqi             #+#    #+#             */
+/*   Updated: 2021/12/13 13:13:47 by iraqi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int	ft_printf(const char *str, ...)
+void	ft_put_c(va_list args_list, int *ret_value)
 {
-	va_list	args_list;
-	int		ret_value;
-	int		i;
-	
-	i = -1;
-	ret_value = 0;
-	if (ft_isvalid(str) == 1)
-		return (-1);
-	va_start(args_list, str);
-	while (str[++i] != '\0')
-	{
-		if (str[i] == '%')
-		{
-			if (ft_is_conversion(str[i + 1]) == 1)
-				ft_check_conversion(str, i++ + 1, &ret_value, args_list);
-		}
-		else
-			ret_value += write(1, &str[i], 1);
-	}
-	va_end(args_list);
-	return (ret_value);
+	char	c;
+
+	c = (char) va_arg(args_list, int);
+	*ret_value += write(1, &c, 1);
 }

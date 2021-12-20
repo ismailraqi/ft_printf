@@ -12,8 +12,13 @@
 
 #include "../includes/ft_printf.h"
 
-int	ft_check_conversion(char c)
+void	ft_check_conversion(const char *str, int pos, int *ret_value, va_list args_list)
 {
-	if (c == 'c')
-		ft_putchar(c);
+	if (str[pos] == CHARACTER)
+		ft_put_c(args_list, ret_value);
+	else if (str[pos] == STRING)
+		ft_put_s(args_list, ret_value);
+	else if (str[pos] == INTIGER || str[pos] == DECIMAL)
+		ft_put_i(args_list, ret_value);
+	else if (str[pos] == )
 }

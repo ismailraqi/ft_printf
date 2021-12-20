@@ -13,10 +13,33 @@
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
+/*  INCLUEDS  */
 #include <stdlib.h>
 #include <unistd.h>
 #include <stdarg.h>
+#include <stdio.h>
+/*  INCLUEDS END */
 
-int	ft_is_conversion(char c);
+/*  PROTOTYPES  */
+int	    ft_is_conversion(char c);
+void	ft_check_conversion(const char *str, int pos, int *ret_value, va_list args_list);
+int     ft_isvalid(const char *str);
+int	    ft_printf(const char *str, ...);
+void	ft_put_c(va_list args_list, int *ret_value);
+void	ft_putchar(char c, int *ret_value);
+void    ft_put_s(va_list args_list, int *ret_value);
+void	ft_put_i(va_list args_list, int *ret_value);
+void	ft_putnbr(int nb, int *ret_value);
+/*  PROTOTYPES END  */
 
+/*  MACROS  */
+# define CHARACTER  'c'
+# define STRING     's'
+# define DECIMAL    'd'
+# define INTIGER    'i'
+# define UNSIGNED   'u'
+# define HEX_LOWER  'x'
+# define HEX_UPER   'X'
+# define POINTER    'p'
+/*  MACROS END */
 #endif
