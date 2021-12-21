@@ -26,10 +26,18 @@ void	ft_check_conversion(const char *str, int pos, int *ret_value, va_list args_
 int     ft_isvalid(const char *str);
 int	    ft_printf(const char *str, ...);
 void	ft_put_c(va_list args_list, int *ret_value);
-void	ft_putchar(char c, int *ret_value);
 void    ft_put_s(va_list args_list, int *ret_value);
 void	ft_put_i(va_list args_list, int *ret_value);
+void    ft_put_p(va_list args_list, int *ret_value);
+void    ft_put_xl(va_list args_list, int *ret_value);
+void    ft_put_xu(va_list args_list, int *ret_value);
+void    ft_put_u(va_list args_list, int *ret_value);
+void	ft_putchar(char c, int *ret_value);
 void	ft_putnbr(int nb, int *ret_value);
+void    ft_puthex(unsigned long long address, int *ret_value, char *source);
+void    ft_putstr(char *str, int *ret_value);
+void    ft_hex_notion(int *ret_value);
+void    ft_putunsigned(unsigned int nbr, int *ret_value);
 /*  PROTOTYPES END  */
 
 /*  MACROS  */
