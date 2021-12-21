@@ -6,7 +6,7 @@
 /*   By: iraqi <iraqi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 10:27:27 by iraqi             #+#    #+#             */
-/*   Updated: 2021/12/13 13:15:37 by iraqi            ###   ########.fr       */
+/*   Updated: 2021/12/16 02:02:04 by iraqi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,14 @@ int	ft_printf(const char *str, ...)
 	while (str[i] != '\0')
 	{
 		if (str[i] == '%')
+		{
 			if (ft_is_conversion(str[i + 1]) == 1)
+			{
 				ft_check_convesion();			
-		
+			}
+		}
+		else
+			ret_value += write(1, &str[i++], 1);	
 	}
+	return (ret_value);
 }
